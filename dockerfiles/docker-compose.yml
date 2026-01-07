@@ -5,10 +5,10 @@ services:
     container_name: govt-mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: p@ssw0rd
+      MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: govt
-      MYSQL_USER: govuseradmin
-      MYSQL_PASSWORD: p@ssw0rd
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
     ports:
       - "3307:3306"
     volumes:
