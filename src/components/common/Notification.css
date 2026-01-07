@@ -1,0 +1,73 @@
+.notification-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.notification {
+  background: white;
+  border-left: 5px solid #333;
+  padding: 20px 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  cursor: pointer;
+  min-width: 320px;
+  font-family: "Georgia", serif; /* Classical feel */
+  font-size: 16px;
+  color: #333;
+
+  /* Classical slow appear */
+  animation: slowAppear 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: all 0.3s ease;
+}
+
+.notification:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.notification.success {
+  border-left-color: #2e7d32;
+}
+
+.notification.error {
+  border-left-color: #c62828;
+}
+
+.notification.info {
+  border-left-color: #0277bd;
+}
+
+.notification.dropping {
+  /* Drop away animation */
+  animation: dropAway 0.6s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+  pointer-events: none;
+}
+
+@keyframes slowAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dropAway {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100px) rotate(5deg);
+  }
+}

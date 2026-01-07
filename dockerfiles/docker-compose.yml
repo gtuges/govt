@@ -1,0 +1,35 @@
+services:
+  # MySQL 8 as requested in pormpt.md
+  mysql:
+    image: mysql:8.0
+    container_name: govt-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: p@ssw0rd
+      MYSQL_DATABASE: govt
+      MYSQL_USER: govuseradmin
+      MYSQL_PASSWORD: p@ssw0rd
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      # Initialize database with the existing SQL file
+      - ./gov-database.sql:/docker-entrypoint-initdb.d/init.sql
+
+  # API Service (Node.js + Express + TypeScript)
+  # Uncomment and configure this when the backend code is ready
+  # api:
+  #   build: ../backend  # Assuming backend code will be in a sibling folder
+  #   container_name: govt-api
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     - DB_HOST=mysql
+  #     - DB_USER=user
+  #     - DB_PASSWORD=password
+  #     - DB_NAME=govt
+  #   depends_on:
+  #     - mysql
+
+volumes:
+  mysql_data:

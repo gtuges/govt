@@ -1,0 +1,617 @@
+.objectives-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Header with Year Filter */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.header-left h2 {
+  margin: 0;
+}
+
+.page-year-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  color: #1e40af;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid #93c5fd;
+}
+
+.year-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.year-filter label {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.year-dropdown {
+  padding: 8px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e293b;
+  background: white;
+  cursor: pointer;
+  min-width: 140px;
+}
+
+.year-dropdown:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Summary Cards */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.summary-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.2s;
+}
+
+.summary-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.summary-card.grand-total {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+}
+
+.summary-card.grand-total .summary-icon {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.summary-card.grand-total .summary-value,
+.summary-card.grand-total .summary-label {
+  color: white;
+}
+
+.summary-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.summary-icon.objectives-icon {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.summary-icon.activities-icon {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.summary-icon.budget-icon {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.summary-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.2;
+}
+
+.summary-label {
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Loading & Error States */
+.loading-state,
+.error-state {
+  text-align: center;
+  padding: 48px;
+  color: #64748b;
+}
+
+.objectives-table-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.mission-section {
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.mission-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mission-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mission-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.mission-budget {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.mission-budget-label {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.mission-budget-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.objectives-count {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.objectives-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.objectives-table thead {
+  background-color: #f8fafc;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.objectives-table th {
+  text-align: left;
+  padding: 12px 16px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.objectives-table tbody tr {
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.2s;
+}
+
+.objectives-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.objectives-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.objectives-table td {
+  padding: 16px;
+  vertical-align: top;
+}
+
+.objective-title {
+  font-weight: 500;
+  color: #1e293b;
+  max-width: 300px;
+}
+
+.objective-narrative {
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  max-width: 400px;
+}
+
+.department-tag {
+  background-color: #f1f5f9;
+  color: #475569;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.status-badge.draft {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-badge.active {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status-badge.completed {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.status-badge.archived {
+  background-color: #f3f4f6;
+  color: #6b7280;
+}
+
+.btn-edit {
+  background: none;
+  border: 1px solid #e2e8f0;
+  color: #3b82f6;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.btn-edit:hover {
+  background-color: #eff6ff;
+  border-color: #3b82f6;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 48px;
+  background: white;
+  border-radius: 8px;
+  color: #64748b;
+  border: 1px dashed #cbd5e1;
+}
+
+/* Budget & Activity Cells */
+.activity-count-cell {
+  text-align: center;
+}
+
+.activity-badge {
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.budget-cell {
+  min-width: 140px;
+  text-align: right;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.budget-cell.estimated {
+  color: #1e293b;
+}
+
+.budget-cell.actual {
+  color: #0369a1;
+}
+
+.budget-amounts {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.budget-row {
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 0.95rem;
+}
+
+.budget-running {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+/* Estimated, Actual, and Variance Columns */
+.estimated-cell,
+.actual-cell,
+.variance-cell {
+  min-width: 120px;
+  text-align: right;
+  vertical-align: top;
+  padding: 12px 16px;
+}
+
+.estimated-cell .budget-row,
+.actual-cell .budget-row {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.estimated-cell .budget-row {
+  color: #1e293b;
+}
+
+.actual-cell .budget-row {
+  color: #0369a1;
+}
+
+.actual-cell .no-expenses {
+  color: #94a3b8;
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+/* Variance styling */
+.variance-cell {
+  min-width: 140px;
+}
+
+.variance-amount {
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: block;
+}
+
+.variance-percent {
+  font-size: 0.75rem;
+  margin-top: 2px;
+  display: block;
+}
+
+.variance-ok .variance-amount,
+.variance-ok .variance-percent {
+  color: #64748b;
+}
+
+.variance-under .variance-amount,
+.variance-under .variance-percent {
+  color: #059669;
+}
+
+.variance-over .variance-amount,
+.variance-over .variance-percent {
+  color: #dc2626;
+}
+
+.variance-over {
+  background-color: rgba(220, 38, 38, 0.05);
+}
+
+.variance-under {
+  background-color: rgba(5, 150, 105, 0.05);
+}
+
+/* Mission row budget styling */
+.mission-budget-row {
+  display: flex;
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.mission-budget-value {
+  font-size: 0.85rem;
+}
+
+.mission-budget-value.estimated {
+  color: #475569;
+}
+
+.mission-budget-value.actual {
+  color: #0369a1;
+}
+
+/* Objective title with narrative hint */
+.objective-title-text {
+  display: block;
+}
+
+.objective-narrative-hint {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-style: italic;
+  margin-top: 4px;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Summary Cards - Estimated & Actual */
+.summary-card.estimated-card {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border-color: #86efac;
+}
+
+.summary-card.actual-card {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-color: #7dd3fc;
+}
+
+.summary-icon.actual-icon {
+  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
+}
+
+/* Grand Total Bar - Updated */
+.grand-total-left {
+  flex: 1;
+}
+
+.grand-total-right {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.grand-total-item {
+  text-align: right;
+}
+
+.grand-total-sublabel {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.grand-total-item .grand-total-value {
+  font-size: 1.4rem;
+}
+
+.grand-total-item .grand-total-value.actual {
+  color: #7dd3fc;
+}
+
+.grand-total-item .grand-total-value.variance {
+  font-size: 1.1rem;
+}
+
+.grand-total-item .grand-total-value.variance.positive {
+  color: #86efac;
+}
+
+.grand-total-item .grand-total-value.variance.negative {
+  color: #fca5a5;
+}
+
+/* Table Footer */
+.objectives-table tfoot {
+  background: #f8fafc;
+  border-top: 2px solid #e2e8f0;
+}
+
+.mission-subtotal-row td {
+  padding: 12px 16px;
+  font-weight: 600;
+}
+
+.subtotal-label {
+  text-align: right;
+  color: #475569;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.subtotal-value {
+  color: #1e293b;
+  font-size: 1.1rem;
+}
+
+.subtotal-value.actual {
+  color: #0369a1;
+}
+
+.subtotal-value.variance-over {
+  color: #dc2626;
+}
+
+.subtotal-value.variance-under {
+  color: #059669;
+}
+
+.subtotal-value.variance-ok {
+  color: #64748b;
+}
+
+/* Grand Total Bar */
+.grand-total-bar {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-top: 16px;
+}
+
+.grand-total-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grand-total-label {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.grand-total-value {
+  color: white;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+/* Status badge additions */
+.status-badge.not-started {
+  background-color: #f3f4f6;
+  color: #6b7280;
+}
