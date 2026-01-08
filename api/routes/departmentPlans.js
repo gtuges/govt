@@ -87,12 +87,10 @@ router.post("/", async (req, res) => {
       [orgId, departmentId, planPeriodId, mission, vision, statusId, createdBy]
     );
 
-    res
-      .status(201)
-      .json({
-        id: planResult.insertId,
-        message: "Mission created successfully",
-      });
+    res.status(201).json({
+      id: planResult.insertId,
+      message: "Mission created successfully",
+    });
   } catch (err) {
     console.error("Error creating department plan:", err);
     res

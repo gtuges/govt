@@ -528,3 +528,5 @@ INSERT INTO budget_categories (id_org, category_name) VALUES
 (1, 'Marketing & Communications'),
 (1, 'IT & Technology'),
 (1, 'Miscellaneous');
+
+-- I was wrong about the id_org
