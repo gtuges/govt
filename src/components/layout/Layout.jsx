@@ -18,6 +18,12 @@ import {
   Award,
   PanelLeftClose,
   PanelLeftOpen,
+  Search,
+  Calendar,
+  Mail,
+  FolderOpen,
+  Bell,
+  Home,
 } from "lucide-react";
 import FiscalYearSelector from "../common/FiscalYearSelector";
 import "./Layout.css";
@@ -97,7 +103,20 @@ const Layout = () => {
     <div className="layout-container">
       <aside className={`sidebar ${isSidebarCollapsed ? "collapsed" : ""}`}>
         <div className="sidebar-header">
-          {!isSidebarCollapsed && <h2>Govt App</h2>}
+          <div className="sidebar-logo">
+            <div className="logo-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L2 7l10 5 10-5-10-5z" fill="currentColor" />
+                <path
+                  d="M2 17l10 5 10-5M2 12l10 5 10-5"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  fill="none"
+                />
+              </svg>
+            </div>
+            {!isSidebarCollapsed && <h2>Govt App</h2>}
+          </div>
           <button
             className="sidebar-toggle-btn"
             onClick={toggleSidebar}
@@ -195,33 +214,81 @@ const Layout = () => {
           })}
         </nav>
         <div className="sidebar-footer">
-          <button
-            className="nav-item logout-btn"
-            title={isSidebarCollapsed ? "Logout" : ""}
-          >
-            <div className="nav-item-content">
-              <LogOut size={20} />
-              {!isSidebarCollapsed && <span>Logout</span>}
-            </div>
-            {isSidebarCollapsed && (
-              <div className="collapsed-tooltip">Logout</div>
+          <div className="sidebar-user">
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+              alt="User Avatar"
+              className="sidebar-user-avatar"
+            />
+            {!isSidebarCollapsed && (
+              <div className="sidebar-user-info">
+                <span className="sidebar-user-name">Admin User</span>
+                <span className="sidebar-user-role">Admin User</span>
+              </div>
             )}
-          </button>
+          </div>
+          <div className="sidebar-footer-actions">
+            <button
+              className="nav-item logout-btn"
+              title={isSidebarCollapsed ? "Logout" : ""}
+            >
+              <div className="nav-item-content">
+                <LogOut size={20} />
+                {!isSidebarCollapsed && <span>Logout</span>}
+              </div>
+              {isSidebarCollapsed && (
+                <div className="collapsed-tooltip">Logout</div>
+              )}
+            </button>
+            {!isSidebarCollapsed && (
+              <div className="sidebar-footer-icons">
+                <button className="footer-icon-btn" title="Mail">
+                  <Mail size={18} />
+                </button>
+                <button className="footer-icon-btn" title="Files">
+                  <FolderOpen size={18} />
+                </button>
+                <button className="footer-icon-btn" title="Settings">
+                  <Settings size={18} />
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </aside>
       <main className="main-content">
         <header className="top-header">
-          <h1>
-            {navItems.find((i) => i.path === location.pathname)?.label ||
-              navItems
-                .flatMap((i) => i.children || [])
-                .find((c) => c.path === location.pathname)?.label ||
-              "Dashboard"}
-          </h1>
+          <div className="header-left">
+            <Home size={20} className="header-home-icon" />
+            <h1>
+              {navItems.find((i) => i.path === location.pathname)?.label ||
+                navItems
+                  .flatMap((i) => i.children || [])
+                  .find((c) => c.path === location.pathname)?.label ||
+                "Dashboard"}
+            </h1>
+          </div>
           <div className="header-right">
-            <FiscalYearSelector />
+            <div className="header-search">
+              <Search size={18} className="header-search-icon" />
+              <input type="text" placeholder="Search..." />
+            </div>
+            <div className="header-icons">
+              <button className="header-icon-btn calendar-btn">
+                <Calendar size={20} />
+              </button>
+              <FiscalYearSelector />
+              <button className="header-icon-btn notification-btn">
+                <Bell size={20} />
+                <span className="notification-badge">1</span>
+              </button>
+            </div>
             <div className="user-profile">
-              <span>Admin User</span>
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+                alt="User Avatar"
+                className="user-avatar"
+              />
             </div>
           </div>
         </header>

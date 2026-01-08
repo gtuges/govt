@@ -1,33 +1,57 @@
+/* ========================================
+   User Roles Page - Glassmorphism Table Design
+   ======================================== */
+
 .user-roles-container {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
+/* Page Header */
 .page-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .actions {
   display: flex;
-  gap: 10px;
+  gap: 12px;
+  align-items: center;
 }
 
+/* Search Input - Glass Style */
 .search-input {
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  width: 300px;
+  padding: 10px 16px;
+  border: 1px solid rgba(203, 213, 225, 0.5);
+  border-radius: 12px;
+  width: 320px;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
 }
 
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary-dark);
+  box-shadow: 0 0 0 3px rgba(11, 61, 46, 0.1);
+}
+
+/* Table Container - Glassmorphism Card */
 .table-container {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(2, 6, 23, 0.08);
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+/* Table Base Styles */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -35,59 +59,86 @@ table {
 
 th,
 td {
-  padding: 12px 16px;
+  padding: 16px 20px;
   text-align: left;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.5);
 }
 
 th {
-  background-color: #f8f9fa;
+  background: linear-gradient(
+    180deg,
+    rgba(248, 250, 252, 0.9) 0%,
+    rgba(241, 245, 249, 0.9) 100%
+  );
   font-weight: 600;
-  color: #444;
+  color: #475569;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
 }
 
+tbody tr {
+  transition: all 0.2s ease;
+}
+
+tbody tr:hover {
+  background: rgba(248, 250, 252, 0.6);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Holder Info Cell */
 .holder-info {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
 }
 
 .holder-info small {
-  color: #666;
-  font-size: 0.85em;
+  color: #64748b;
+  font-size: 0.85rem;
 }
 
 .no-holder {
-  color: #999;
+  color: #94a3b8;
   font-style: italic;
+  font-size: 0.9rem;
 }
 
+/* Assign Button */
 .btn-assign {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  background-color: #3b82f6;
+  gap: 8px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.2s;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
 }
 
 .btn-assign:hover {
-  background-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35);
 }
 
-/* Modal Styles */
+/* Modal Styles - Glassmorphism */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,13 +147,16 @@ th {
 }
 
 .modal-content {
-  background: white;
-  padding: 24px;
-  border-radius: 8px;
-  width: 500px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 28px;
+  border-radius: 18px;
+  width: 520px;
+  max-width: 90vw;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   animation: slideUp 0.3s ease;
 }
 
@@ -110,69 +164,131 @@ th {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .modal-header h3 {
   margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0f172a;
 }
 
 .close-btn {
-  background: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(241, 245, 249, 0.8);
   border: none;
   cursor: pointer;
-  color: #666;
-  padding: 4px;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  padding: 0;
 }
 
 .close-btn:hover {
-  color: #333;
+  background: #ef4444;
+  color: white;
 }
 
+/* Role Details Card */
 .role-details {
-  background-color: #f8f9fa;
-  padding: 16px;
-  border-radius: 6px;
-  margin-bottom: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(248, 250, 252, 0.9) 0%,
+    rgba(241, 245, 249, 0.9) 100%
+  );
+  padding: 18px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(226, 232, 240, 0.5);
 }
 
 .role-details p {
   margin: 8px 0;
-  font-size: 14px;
+  font-size: 0.9rem;
+  color: #475569;
 }
 
 .role-details strong {
-  color: #444;
+  color: #1e293b;
   margin-right: 8px;
 }
 
+/* Form Styles */
 .form-group {
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   font-weight: 500;
-  color: #333;
+  color: #374151;
+  font-size: 0.9rem;
 }
 
 .form-group input,
 .form-group select {
   width: 100%;
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 14px;
+  padding: 12px 16px;
+  border: 1px solid rgba(203, 213, 225, 0.5);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.8);
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary-dark);
+  box-shadow: 0 0 0 3px rgba(11, 61, 46, 0.1);
 }
 
 .modal-actions {
   display: flex;
   justify-content: flex-end;
-  gap: 10px;
-  margin-top: 24px;
+  gap: 12px;
+  margin-top: 28px;
 }
 
+.modal-actions button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-actions button[type="button"] {
+  background: rgba(241, 245, 249, 0.8);
+  border: 1px solid rgba(203, 213, 225, 0.5);
+  color: #64748b;
+}
+
+.modal-actions button[type="button"]:hover {
+  background: rgba(226, 232, 240, 0.8);
+  color: #475569;
+}
+
+.modal-actions button[type="submit"] {
+  background: var(--primary-dark);
+  border: none;
+  color: white;
+}
+
+.modal-actions button[type="submit"]:hover {
+  background: #0f4a37;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(11, 61, 46, 0.25);
+}
+
+/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -191,4 +307,18 @@ th {
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  color: #64748b;
+}
+
+/* Loading State */
+.loading-row td {
+  text-align: center;
+  padding: 32px;
+  color: #64748b;
 }

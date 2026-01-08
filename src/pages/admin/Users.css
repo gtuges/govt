@@ -1,30 +1,50 @@
+/* ========================================
+   Users Page - Glassmorphism Table Design
+   ======================================== */
+
 .users-container {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
+/* Header with Search and Add Button */
 .users-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .search-bar {
-  padding: 8px 12px;
-  border: 1px solid #cbd5e1;
-  border-radius: 6px;
-  width: 300px;
+  padding: 10px 16px;
+  border: 1px solid rgba(203, 213, 225, 0.5);
+  border-radius: 12px;
+  width: 320px;
   font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
 }
 
+.search-bar:focus {
+  outline: none;
+  border-color: var(--primary-dark);
+  box-shadow: 0 0 0 3px rgba(11, 61, 46, 0.1);
+}
+
+/* Table Container - Glassmorphism Card */
 .users-table-container {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  overflow-x: auto;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(2, 6, 23, 0.08);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+/* Table Base Styles */
 .users-table {
   width: 100%;
   border-collapse: collapse;
@@ -32,45 +52,66 @@
 }
 
 .users-table th {
-  background-color: #f8fafc;
-  padding: 12px 16px;
+  background: linear-gradient(
+    180deg,
+    rgba(248, 250, 252, 0.9) 0%,
+    rgba(241, 245, 249, 0.9) 100%
+  );
+  padding: 16px 20px;
   font-weight: 600;
   color: #475569;
-  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
 }
 
 .users-table td {
-  padding: 12px 16px;
-  border-bottom: 1px solid #e2e8f0;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.5);
   color: #1e293b;
   vertical-align: middle;
+}
+
+.users-table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.users-table tbody tr:hover {
+  background: rgba(248, 250, 252, 0.6);
 }
 
 .users-table tr:last-child td {
   border-bottom: none;
 }
 
+/* User Cell with Avatar */
 .user-info-cell {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .user-avatar {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 .user-details {
   display: flex;
   flex-direction: column;
+  gap: 2px;
 }
 
 .user-name {
-  font-weight: 500;
+  font-weight: 600;
   color: #0f172a;
+  font-size: 0.95rem;
 }
 
 .user-email {
@@ -78,25 +119,139 @@
   color: #64748b;
 }
 
+/* Status Badge - Pill Style */
 .status-badge {
-  padding: 4px 8px;
-  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 20px;
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
+  letter-spacing: 0.3px;
 }
 
 .status-badge.active {
-  background-color: #dcfce7;
+  background: linear-gradient(
+    135deg,
+    rgba(34, 197, 94, 0.15) 0%,
+    rgba(22, 163, 74, 0.2) 100%
+  );
   color: #166534;
+  border: 1px solid rgba(34, 197, 94, 0.3);
 }
 
 .status-badge.inactive {
-  background-color: #f1f5f9;
+  background: rgba(100, 116, 139, 0.1);
   color: #64748b;
+  border: 1px solid rgba(100, 116, 139, 0.2);
 }
 
+/* Action Buttons */
 .action-buttons {
   display: flex;
   gap: 8px;
+}
+
+.action-buttons .btn-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: rgba(241, 245, 249, 0.8);
+  color: #64748b;
+}
+
+.action-buttons .btn-icon:hover {
+  background: var(--primary-dark);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(11, 61, 46, 0.25);
+}
+
+.action-buttons .btn-icon.delete:hover {
+  background: #ef4444;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Role/Department Pills */
+.role-pill,
+.department-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.1) 0%,
+    rgba(99, 102, 241, 0.15) 100%
+  );
+  color: #3730a3;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+/* Table Footer / Pagination */
+.users-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: rgba(248, 250, 252, 0.5);
+  border-top: 1px solid rgba(226, 232, 240, 0.5);
+}
+
+.users-footer .pagination {
+  display: flex;
+  gap: 8px;
+}
+
+.users-footer .pagination button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  background: rgba(255, 255, 255, 0.8);
+  color: #475569;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.users-footer .pagination button:hover {
+  background: var(--primary-dark);
+  color: white;
+  border-color: var(--primary-dark);
+}
+
+.users-footer .pagination button.active {
+  background: var(--primary-dark);
+  color: white;
+  border-color: var(--primary-dark);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  color: #64748b;
+}
+
+.empty-state svg {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+/* Loading State */
+.loading-row td {
+  text-align: center;
+  padding: 32px;
+  color: #64748b;
 }
